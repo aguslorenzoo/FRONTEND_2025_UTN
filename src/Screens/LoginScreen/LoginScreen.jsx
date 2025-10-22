@@ -74,7 +74,7 @@ const LoginScreen = () =>{
             <h1>Login</h1>
             <form onSubmit={handleSubmit}> 
                 <div className="form-field">
-                    <label htmlFor="email">Email:</label>
+                    <label htmlFor="email">Email: </label>
                     <input 
                         type="text" 
                         placeholder="pepe@mail.com" 
@@ -85,7 +85,7 @@ const LoginScreen = () =>{
                     />
                 </div>
                 <div className="form-field">
-                    <label htmlFor="password">Contraseña</label>
+                    <label htmlFor="password">Contraseña: </label>
                     <input 
                         type="text" 
                         placeholder="pepe-123" 

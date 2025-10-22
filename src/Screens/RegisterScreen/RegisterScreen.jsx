@@ -51,7 +51,7 @@ const RegisterScreen = () =>{
             <h1>Registrate</h1>
             <form onSubmit={handleSubmit}> 
                 <div className="form-field">
-                    <label htmlFor="username">Nombre de usuario:</label>
+                    <label htmlFor="username">Nombre de usuario: </label>
                     <input 
                         type="text" 
                         placeholder="pepe" 
@@ -62,7 +62,7 @@ const RegisterScreen = () =>{
                     />
                 </div>
                 <div className="form-field">
-                    <label htmlFor="email">Email:</label>
+                    <label htmlFor="email">Email: </label>
                     <input 
                         type="text" 
                         placeholder="pepe@mail.com" 
@@ -73,7 +73,7 @@ const RegisterScreen = () =>{
                     />
                 </div>
                 <div className="form-field">
-                    <label htmlFor="password">Contraseña</label>
+                    <label htmlFor="password">Contraseña: </label>
                     <input  
                         type="text" 
                         placeholder="Pepe-123" 
