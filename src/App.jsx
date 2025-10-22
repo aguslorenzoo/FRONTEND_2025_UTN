@@ -1,9 +1,9 @@
 import React from "react"
 import { Route, Routes } from "react-router"
-import LoginScreen from "./Screens/LoginScreen/LoginScreen"
-import RegisterScreen from "./Screens/RegisterScreen/RegisterScreen"
-import HomeScreen from "./Screens/HomeScreen/homeScreen"
-import AuthMiddleware from "./Middleware/authMiddleware"
+import LoginScreen from "./Screens/LoginScreen/LoginScreen.jsx"
+import RegisterScreen from "./Screens/RegisterScreen/RegisterScreen.jsx"
+import HomeScreen from "./Screens/HomeScreen/HomeScreen.jsx"
+import AuthMiddleware from "./Middleware/authMiddleware.jsx"
 
 function App() {
 
