@@ -1,11 +1,11 @@
-import ENVIRONMENT from "../config/environment";
+import ENVIRONMENT from "../config/environment.js";
 
 export async function getWorkspaces () {
     const response_http = await fetch(
         ENVIRONMENT.URL_API + '/api/workspace',
         {
             method: 'GET',
-            headerr: {
+            headers: {
                 'Authorization': `Bearer ${localStorage.getItem('auth_token')}`
             }
         }
