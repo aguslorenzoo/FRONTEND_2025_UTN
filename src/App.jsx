@@ -6,7 +6,7 @@ import HomeScreen from "./Screens/HomeScreen/HomeScreen.jsx"
 import AuthMiddleware from "./Middleware/authMiddleware.jsx"
 
 function App() {
-
+  
   return (
     <div>
       <Routes>

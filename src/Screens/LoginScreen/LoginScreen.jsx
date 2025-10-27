@@ -70,9 +70,9 @@ const LoginScreen = () =>{
         [response]
     )
     return (
-        <div>
-            <h1>Login</h1>
+        <div className="login-container">
             <form onSubmit={handleSubmit}> 
+                <h1>Login</h1>
                 <div className="form-field">
                     <label htmlFor="email">Email: </label>
                     <input 
@@ -96,7 +96,7 @@ const LoginScreen = () =>{
                     />
                 </div>
                 {error && <span style={{color: 'red'}}> {error} </span>}
-                {response && <span style={{color: 'green'}}> Usuario logueado con exito </span>}
+                {response && <span style={{color: 'green'}}>Usuario logueado con exito </span>}
                 {
                     loading
                     ? <button disabled>Iniciando..</button>
