@@ -18,28 +18,42 @@ const HomeScreen = () =>{
     )
     console.log(response, loading, error)
     return (
-        <div>
-            <h1>Lista de espacios de trabajo</h1>
-            {
-                loading
-                ? <span>Cargando...</span>
-                : <div>
+        <div className="container-home">
+            <div className="workspaces-sidebar">
+                <div className="title-home">
+                    <h1>Espacios de trabajo</h1>  
+                </div>
+                <div className="workspaces-list">
                     {
-                    response 
-                    &&
-                    response.data.workspaces.map(
-                        (workspace) => {
-                            return (
-                                <div key={workspace.workspace_id}>
-                                    <h2>{workspace.workspace_name}</h2>
-                                    <Link to={'/workspace/' + workspace.workspace_id}>Abrir workspace</Link>
-                                </div>
+                        loading
+                        ? <span>Cargando...</span>
+                        : 
+                        <div className="workspaces-container">
+                            {
+                            response 
+                            &&
+                            response.data.workspaces.map(
+                                (workspace) => {
+                                    return (
+                                            <Link to={'/workspace/' + workspace.workspace_id} className="workspace-card">
+                                                <div className="workspace-info" key={workspace.workspace_id}>
+                                                    {workspace.workspace_url_image && (
+                                                        <img 
+                                                            src={workspace.workspace_url_image} 
+                                                            className="workspace-image"
+                                                        />
+                                                    )}
+                                                    <h2>{workspace.workspace_name}</h2>
+                                                </div>
+                                            </Link>
+                                    )
+                                }
                             )
-                        }
-                    )
+                            }
+                        </div>
                     }
                 </div>
-            }
+            </div>
         </div>
     )
 }

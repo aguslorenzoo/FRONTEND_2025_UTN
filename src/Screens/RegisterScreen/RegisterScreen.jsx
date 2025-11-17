@@ -1,25 +1,27 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router";
 import useForm from "../../hooks/useForm.jsx";
 import { register } from "../../services/authService.js";
 import useFetch from "../../hooks/useFetch.jsx";
 import "./RegisterScreen.css";
 
 const RegisterScreen = () =>{
-    // guardamos los campos que tendra nuestro form
+    const navigate = useNavigate()
+    
     const REGISTER_FORM_FIELDS = {
         USERNAME: 'username',
         EMAIL: 'email',
         PASSWORD: 'password'
     }
     
-    //creamos estado inicial del form
+    
     const initial_form_state = {
         [REGISTER_FORM_FIELDS.USERNAME]: '',
         [REGISTER_FORM_FIELDS.EMAIL]: '',
         [REGISTER_FORM_FIELDS.PASSWORD]: ''
     }
 
-    // ESTADOS PARA MANEJAR UNA CONSULTA DEL SERVIDOR
+    
     const {response, error, loading, sendRequest, resetResponse} =  useFetch()
 
     function onRegister (form_state_sent) {
@@ -89,14 +91,24 @@ const RegisterScreen = () =>{
                                 onChange={onInputChange}
                             />
                         </div>
-                        {error && <span style={{color: 'red'}}> {error} </span>}
-                        {response && <span style={{color: 'green'}}>Usuario registrado con exito, por favor verifique su email </span>}
-                        {
-                            loading
-                            ? <button disabled>Registrando</button>
-                            : <button>Registrarse</button>
-                        }
-                     </div>
+                        {error && <span className="register-message" style={{color: 'red'}}> {error} </span>}
+                        {response && <span className="register-message" style={{color: 'green'}}>Usuario registrado con exito, por favor verifique su email </span>}
+                        <div className="button-container">
+                            {
+                                loading
+                                ? <button disabled className="button-loading">Registrando...</button>
+                                : <button className="button">Registrarse</button>
+                            }
+                        </div>
+                        <div className="login-link">
+                            <span>¿Ya tenes una cuenta?</span>
+                            <span 
+                                className="link-text"
+                                onClick={() => navigate('/login')}>
+                                Ingresa
+                            </span>
+                        </div>
+                    </div>
                 </form>   
             </div>
         </div>
