@@ -1,0 +1,20 @@
+.channelList-container{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    font-size: 13px;
+}
+
+.channel-card{
+    text-decoration: none;
+    padding: 7px;
+    height: 35px;
+    border-radius: 6px;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+}
+
+.channel-card:hover{
+    background-color: #3d3c3c;
+}

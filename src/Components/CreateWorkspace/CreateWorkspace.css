@@ -1,0 +1,130 @@
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10000;
+}
+
+.modal-content {
+    background: #36393f;
+    border-radius: 8px;
+    padding: 20px;
+    width: 400px;
+    max-width: 90vw;
+    color: white;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #40444b;
+    padding-bottom: 15px;
+}
+
+.modal-header h3 {
+    margin: 0;
+    color: white;
+}
+
+.close-btn {
+    background: none;
+    border: none;
+    color: #b9bbbe;
+    font-size: 24px;
+    cursor: pointer;
+    padding: 0;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.close-btn:hover {
+    background: #40444b;
+    color: white;
+}
+
+.modal-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    color: #b9bbbe;
+    font-weight: 600;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 10px;
+    border-radius: 4px;
+    border: 1px solid #40444b;
+    background: #40444b;
+    color: white;
+    font-size: 14px;
+}
+
+.form-group input:focus {
+    outline: none;
+    border-color: #5865f2;
+}
+
+.modal-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.cancel-btn, .create-btn {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.cancel-btn {
+    background: #4f545c;
+    color: white;
+}
+
+.cancel-btn:hover {
+    background: #5d6269;
+}
+
+.create-btn {
+    background: #5865f2;
+    color: white;
+}
+
+.create-btn:hover:not(:disabled) {
+    background: #4752c4;
+}
+
+.create-btn:disabled {
+    background: #4f545c;
+    cursor: not-allowed;
+}
+
+.error-message {
+    color: #ed4245;
+    font-size: 14px;
+    padding: 10px;
+    background: rgba(237, 66, 69, 0.1);
+    border-radius: 4px;
+}
