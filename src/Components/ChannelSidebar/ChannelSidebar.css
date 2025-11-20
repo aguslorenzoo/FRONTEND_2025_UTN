@@ -58,3 +58,56 @@
 .channel-error {
     color: #ed4245;
 }
+
+.invite-button-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.invite-button{
+    height: 40px;
+    width: 210px;
+    margin: 15px;
+    border-radius: 10px;
+    background-color: #292828;
+    border: 1px solid #292828;
+    font-size: 14px;
+    transition: all 0.2s ease;
+}
+
+.invite-button:hover{
+    background-color: #3d3c3c;
+}
+
+
+.channel-header{
+    display: flex;
+    align-items: center;
+}
+
+.create-channel-button-container{
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+    margin-top: 20px;
+    margin-bottom: 5px;
+    padding: 0;
+}
+
+.create-channel-btn{
+    height: 25px;
+    width: 25px;
+    border-radius: 10px;
+    background-color: #292828;
+    border: 1px solid #292828;
+    font-size: 14px;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.create-channel-btn:hover{
+    background-color: #3d3c3c;
+}

@@ -1,14 +1,14 @@
-.modal-overlay {
+.modal-container {
     position: fixed;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
-    background: rgba(0, 0, 0, 0.7);
+    background: rgba(0, 0, 0, 0.5);
     display: flex;
     align-items: center;
     justify-content: center;
-    z-index: 10000;
+    z-index: 1000;
 }
 
 .modal-content {
@@ -55,10 +55,8 @@
     color: white;
 }
 
-.modal-form {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
+.form-group {
+    margin-bottom: 15px;
 }
 
 .form-group label {
@@ -83,6 +81,12 @@
     border-color: #5865f2;
 }
 
+.error-message {
+    color: #ff4444;
+    margin: 10px 0;
+    font-size: 14px;
+}
+
 .modal-actions {
     display: flex;
     justify-content: flex-end;
@@ -90,104 +94,27 @@
     margin-top: 20px;
 }
 
-.cancel-btn, .create-btn {
+.cancel-btn {
     padding: 10px 20px;
     border: none;
     border-radius: 4px;
     cursor: pointer;
     font-weight: 600;
-}
-
-.cancel-btn {
     background: #4f545c;
     color: white;
 }
 
-.cancel-btn:hover {
-    background: #5d6269;
-}
-
 .create-btn {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 600;
     background: #5865f2;
     color: white;
-}
-
-.create-btn:hover:not(:disabled) {
-    background: #4752c4;
 }
 
 .create-btn:disabled {
     background: #4f545c;
     cursor: not-allowed;
-}
-
-.error-message {
-    color: #ed4245;
-    font-size: 14px;
-    padding: 10px;
-    background: rgba(237, 66, 69, 0.1);
-    border-radius: 4px;
-}
-
-.help-text {
-    display: block;
-    margin-top: 5px;
-    color: #666;
-    font-size: 12px;
-    font-style: italic;
-}
-
-.image-preview-section {
-    margin: 15px 0;
-    display: flex;
-    align-items: center;
-}
-
-.url-image-preview {
-    position: relative;
-    display: inline-block;
-    margin-top: 8px;
-    margin-left: 40px;
-}
-
-.url-image-preview img {
-    width: 100px;
-    height: 100px;
-    object-fit: cover;
-    border-radius: 8px;
-    border: 2px solid #ddd;
-}
-
-.remove-url-btn {
-    position: absolute;
-    top: -8px;
-    right: -8px;
-    background: #ff4444;
-    color: white;
-    border: none;
-    border-radius: 50%;
-    width: 24px;
-    height: 24px;
-    cursor: pointer;
-    font-size: 12px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.remove-url-btn:hover {
-    background: #cc0000;
-}
-
-input[type="url"] {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    font-size: 14px;
-}
-
-input[type="url"]:focus {
-    outline: none;
-    border-color: #7289da;
 }

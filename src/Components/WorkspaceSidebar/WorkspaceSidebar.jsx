@@ -41,7 +41,6 @@ const WorkspaceSidebar = () => {
                         <Link 
                             to={`/workspace/${workspace.workspace_id}`}
                             className={`workspace-link ${workspace_id === workspace.workspace_id ? 'active': ''}`}
-                            title={workspace.workspace_name}
                             state={{ workspace_name: workspace.workspace_name }}
                         >
                         {workspace.workspace_url_image ? (

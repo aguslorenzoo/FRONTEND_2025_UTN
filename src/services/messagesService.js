@@ -18,3 +18,24 @@ export async function getMessagesByChannelId (workspace_id, channel_id) {
     return response
 }
 
+export async function createChannel(workspace_id, name) {
+    const response_http = await fetch(
+        ENVIRONMENT.URL_API + `/api/workspace/${workspace_id}/channels`,
+        {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${localStorage.getItem(AUTH_TOKEN_KEY)}`
+            },
+            body: JSON.stringify({
+                name: name
+            })
+        }
+    )
+    
+    const response = await response_http.json()
+    if(!response.ok){
+        throw new Error(response.message || 'Error al crear el canal')
+    }
+    return response
+}

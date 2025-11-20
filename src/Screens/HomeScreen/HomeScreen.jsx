@@ -40,7 +40,6 @@ const HomeScreen = () => {
                                 (
                                     <div>
                                         <h3>Bienvenido a Discord Clone</h3>
-                                        <p>Selecciona un workspace para comenzar</p>
                                     </div>
                                 )
                             }

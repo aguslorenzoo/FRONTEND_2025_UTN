@@ -1,0 +1,104 @@
+.invite-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+.invite-modal {
+    background: #36393f;
+    padding: 20px;
+    border-radius: 8px;
+    width: 400px;
+    color: white;
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.modal-header h3 {
+    margin: 0;
+    color: white;
+}
+
+.close-btn {
+    background: #4f545c;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+}
+
+.close-btn:hover {
+    background: #5d6269;
+}
+
+.email-input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 4px;
+    border: 1px solid #40444b;
+    background: #40444b;
+    color: white;
+}
+
+.email-input:focus {
+    outline: none;
+    border-color: #5865f2;
+}
+
+.error-text {
+    color: #ed4245;
+    margin: 10px 0;
+}
+
+.modal-buttons {
+    display: flex;
+    gap: 10px;
+    justify-content: flex-end;
+    margin-top: 15px;
+}
+
+.cancel-btn {
+    background: #4f545c;
+    color: white;
+    padding: 8px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.cancel-btn:hover {
+    background: #5d6269;
+}
+
+.invite-btn {
+    background: #5865f2;
+    color: white;
+    padding: 8px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.invite-btn:hover:not(:disabled) {
+    background: #4752c4;
+}
+
+.invite-btn:disabled {
+    background: #4f545c;
+    cursor: not-allowed;
+}
