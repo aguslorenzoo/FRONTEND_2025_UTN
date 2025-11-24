@@ -2,6 +2,7 @@ body{
     margin: 0;
     font-family: sans-serif;
     color: white;
+    box-sizing: border-box;
 }
 
 .container{
@@ -16,9 +17,10 @@ body{
 .login-container{
     display: flex;
     box-sizing: border-box;
+    align-items: center;
     border: 3px solid #212121;
     border-radius: 10px;
-    height: 400px;
+    height: 450px;
     width: 400px;
     background-color: #212121;
 }
@@ -32,6 +34,15 @@ body{
 .form-container h1{
     display: flex;
     justify-content: center;
+    font-size: 22px;
+    margin: 30px;
+}
+
+
+.form-container h2{
+    display: flex;
+    justify-content: center;
+    font-weight: 200;
 }
 
 .form-content .form-field{
@@ -87,10 +98,14 @@ body{
     border-radius: 50px;
 }
 
+
 .login-message{
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-left: 25px;
+    margin-right: 25px;
+    font-size: 14px;
 }
 
 input:focus {

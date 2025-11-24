@@ -1,0 +1,37 @@
+.delete-modal {
+    max-width: 450px;
+}
+
+.delete-warning {
+    margin: px 0;
+    padding: 15px;
+    background-color: #36393f;
+    border-radius: 4px;
+}
+
+.delete-warning p {
+    margin: 0 0 10px 0;
+}
+
+.warning-text {
+    color: #dc3545;
+    font-size: 14px;
+}
+
+.delete-btn {
+    padding: 10px 15px;
+    background: #dc3545;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.delete-btn:hover:not(:disabled) {
+    background: #c82333;
+}
+
+.delete-btn:disabled {
+    background: #6c757d;
+    cursor: not-allowed;
+}

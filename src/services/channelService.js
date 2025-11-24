@@ -20,12 +20,6 @@ async function getChannelList (workspace_id){
 
 
 async function createChannel(workspace_id, channel_name) {
-     console.log('🔍 DEBUG createChannel:');
-    console.log('🔍 workspace_id:', workspace_id);
-    console.log('🔍 channel_name:', channel_name);
-    console.log('🔍 Token:', localStorage.getItem(AUTH_TOKEN_KEY));
-    console.log('🔍 URL:', ENVIRONMENT.URL_API + `/api/workspace/${workspace_id}/channels`);
-    
     const response_http = await fetch(
         ENVIRONMENT.URL_API + `/api/workspace/${workspace_id}/channels`,
         {
@@ -38,18 +32,30 @@ async function createChannel(workspace_id, channel_name) {
                 name: channel_name
             })
         }
-    )
-    
-    console.log('🔍 Response status:', response_http.status);
-    console.log('🔍 Response ok:', response_http.ok);
-    
-    const response = await response_http.json()
-    console.log('🔍 Response data:', response);
-    
+    )  
+    const response = await response_http.json()  
     if (!response_http.ok) {
         throw new Error(response.message || 'Error al crear el canal')
     }
     return response
 }
 
-export { getChannelList, createChannel }
+async function deleteChannel (workspace_id, channel_id){
+    const response_http = await fetch (
+        ENVIRONMENT.URL_API + `/api/workspace/:workspace_id/channels/:channel_id`,
+        {
+            method: 'DELETE',
+            headers: {
+                'Authorization': `Bearer ${localStorage.getItem(AUTH_TOKEN_KEY)}`
+            }
+        }
+    )
+    const response = await response_http.json()
+    
+    if(!response_http.ok){
+        throw new Error(response.message || 'Error al eliminar el workspace')
+    }
+    return response
+}
+
+export { getChannelList, createChannel, deleteChannel }

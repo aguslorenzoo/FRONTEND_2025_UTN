@@ -2,6 +2,7 @@ body{
     margin: 0;
     font-family: sans-serif;
     color: white;
+    box-sizing: border-box;
 }
 
 .container{
@@ -15,10 +16,11 @@ body{
 
 .register-container{
     display: flex;
+    align-items: center;
     box-sizing: border-box;
     border: 3px solid #212121;
     border-radius: 10px;
-    height: 500px;
+    height: 550px;
     width: 400px;
     background-color: #212121;
 }
@@ -32,6 +34,7 @@ body{
 .form-container h1{
     display: flex;
     justify-content: center;
+    margin: 10px;
 }
 
 .form-content .form-field{
@@ -61,7 +64,7 @@ body{
     align-items: center;
     padding-left: 15px;
     padding-right: 15px;
-    margin-top: 30px;
+    margin: 10px;
 }
 
 .button {
@@ -90,6 +93,9 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-left: 25px;
+    margin-right: 25px;
+    font-size: 14px;
 }
 
 input:focus {

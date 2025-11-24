@@ -1,6 +1,6 @@
 import React, { useState ,useEffect } from "react"; 
 import { useParams, Link } from "react-router";
-import useFetch from "../../hooks/useFetch.jsx";
+import useFetch from "../../hooks/useFetch.jsx"; 
 import { getWorkspaces } from "../../services/workspaceService.js";
 import "./WorkspaceSidebar.css"
 import CreateWorkspace from "../CreateWorkspace/CreateWorkspace.jsx";
@@ -24,7 +24,7 @@ const WorkspaceSidebar = () => {
     )
 
     const handleCreateWorkspace = () => {
-        setIsModalOpen(true)
+        setIsModalOpen(true) 
     }
 
     const handleWorkspaceCreated = () => {

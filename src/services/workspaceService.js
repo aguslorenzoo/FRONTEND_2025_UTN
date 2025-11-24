@@ -76,8 +76,21 @@ export async function inviteToWorkspace(workspace_id, email_invited, role_invite
     return data
 }
 
-export async function deleteChannel(workspace_id) {
-    const response = await fetch (
-        ENVIRONMENT.URL_API + `/api/workspace`
+export async function deleteWorkspace(workspace_id) {
+    const response_http = await fetch(
+        ENVIRONMENT.URL_API + `/api/workspace/${workspace_id}`,
+        {
+            method: 'DELETE',
+            headers: {
+                'Authorization': `Bearer ${localStorage.getItem(AUTH_TOKEN_KEY)}`
+            }
+        }
     )
+    
+    const response = await response_http.json()
+    
+    if(!response_http.ok){
+        throw new Error(response.message || 'Error al eliminar el workspace')
+    }
+    return response
 }

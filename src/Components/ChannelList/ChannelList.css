@@ -2,18 +2,47 @@
     display: flex;
     flex-direction: column;
     gap: 10px;
-    font-size: 13px;
+    font-size: 14px;
+    width: 100%;
+}
+
+.channel-container{
+    width: 100%;
+}
+
+.channel-link{
+    text-decoration: none;
 }
 
 .channel-card{
-    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
     padding: 7px;
     height: 35px;
     border-radius: 6px;
     transition: all 0.2s ease;
+}
+
+.delete-channel-btn{
+    background: none;
+    border: none;
+    color: #8e9297;
+    cursor: pointer;
+
+    border-radius: 4px;
+    transition: all 0.2s ease;
     display: flex;
     align-items: center;
+    justify-content: center;
+    height: 25px;
 }
+
+.delete-channel-btn:hover{
+    background-color: #ED4245;
+}
+
+
 
 .channel-card:hover{
     background-color: #3d3c3c;

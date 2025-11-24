@@ -10,7 +10,7 @@ const RegisterScreen = () =>{
     
     const REGISTER_FORM_FIELDS = {
         USERNAME: 'username',
-        EMAIL: 'email',
+        EMAIL: 'email', 
         PASSWORD: 'password'
     }
     
@@ -53,7 +53,7 @@ const RegisterScreen = () =>{
         <div className="container">
             <div className="register-container">
                 <form onSubmit={handleSubmit} className="form-container">
-                    <h1>Registrate</h1> 
+                    <h1>Bienvenido a Discord Clone</h1> 
                     <div className="form-content">
                         <div className="form-field">
                             <label htmlFor="username" className="form-field-title">Nombre de usuario: </label>

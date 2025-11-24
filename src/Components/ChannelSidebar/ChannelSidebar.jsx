@@ -1,11 +1,12 @@
 import React, { useState ,useEffect } from "react"; 
 import ChannelList from "../ChannelList/ChannelList.jsx";
 import useFetch from "../../hooks/useFetch.jsx";
-import { useLocation, useParams } from "react-router";
+import { useLocation, useParams, useNavigate } from "react-router"; 
 import { getChannelList } from "../../services/channelService.js";
 import "./ChannelSidebar.css"
 import InviteToWorkspace from "../InviteToWorkspace/InviteToWorkspace.jsx";
 import CreateChannelModal from "../CreateChannel/CreateChannelModal.jsx";
+import DeleteWorkspace from "../DeleteWorkspace/DeleteWorkspace.jsx";
 
 const ChannelSidebar = () => {
     const {response, loading, error, sendRequest} = useFetch()
@@ -13,12 +14,15 @@ const ChannelSidebar = () => {
     const {workspace_id} = useParams()
     const [isInviteModalOpen, setIsInviteModalOpen] = useState(false)
     const [isCreateChannelModalOpen, setIsCreateChannelModalOpen] = useState(false)
+    const navigate = useNavigate()
+    const [isDeleteWorkspaceModalOpen, setIsDeleteWorkspaceModalOpen] = useState(false)
+    
 
     async function loadChannelList (){
         await sendRequest(
             async () => await getChannelList(workspace_id)
         )
-    }
+    } 
 
     useEffect(
         () => {
@@ -29,14 +33,25 @@ const ChannelSidebar = () => {
 
     console.log(response, error, loading)
 
+    const handleWorkspaceDeleted = () => {
+        navigate('/home') 
+    }
+
     const workspaceName = location.state?.workspace_name || 'Workspace';
     
     return (
-        <aside className="channel-sidebar">
+        <div className="channel-sidebar">
             <div className="channel-sidebar-header">
-                <h3 className="channel-sidebar-title">
-                    {workspaceName}
-                </h3>
+                    <h3 className="channel-sidebar-title">
+                        Workspace
+                    </h3>
+                    <button 
+                        className="delete-workspace-btn"
+                        onClick={() => setIsDeleteWorkspaceModalOpen(true)}
+                        title="Eliminar workspace"
+                    >
+                        <i className="bi bi-trash"></i>
+                    </button>
             </div>
             <div className="title-separator" />
             <div className="invite-button-contianer">
@@ -57,6 +72,12 @@ const ChannelSidebar = () => {
                 workspace_id={workspace_id}
                 onChannelCreated={loadChannelList}
             />
+            <DeleteWorkspace
+                isOpen={isDeleteWorkspaceModalOpen}
+                onClose={() => setIsDeleteWorkspaceModalOpen(false)}
+                workspace={{ _id: workspace_id, name: workspaceName }}
+                onWorkspaceDeleted={handleWorkspaceDeleted}
+            />
 
             <div className="channel-sidebar-content">
                 <div className="channel-header">
@@ -72,7 +93,7 @@ const ChannelSidebar = () => {
                 {response && <ChannelList channel_list={response.data.channels}/>}
                 {error && <span className="channel-error">Error al obtener canales</span>}
             </div>
-        </aside>
+        </div>
     )
 }
 

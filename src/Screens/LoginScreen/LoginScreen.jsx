@@ -5,7 +5,7 @@ import useForm from "../../hooks/useForm";
 import { login } from "../../services/authService";
 import { AuthContext } from "../../Context/AuthContext";
 import "./LoginScreen.css";
-
+ 
 const LoginScreen = () =>{
     const navigate = useNavigate()
     const location = useLocation()
@@ -72,7 +72,7 @@ const LoginScreen = () =>{
         <div className="container">
             <div className="login-container">
                 <form onSubmit={handleSubmit} className="form-container"> 
-                    <h1>Login</h1>
+                    <h1>Bienvenido a Discord Clone</h1>
                     <div className="form-content">
                         <div className="form-field">
                             <label htmlFor="email" className="form-field-title">Email: </label>
@@ -98,8 +98,10 @@ const LoginScreen = () =>{
                                 onChange={onInputChange}
                             />
                         </div>
-                        {error && <span className="login-message" style={{color: 'red'}}> {error} </span>}
-                        {response && <span className="login-message" style={{color: 'green'}}>Usuario logueado con exito </span>}
+                        <div className="login-message-container">
+                            {error && <span className="login-message" style={{color: 'red'}}> {error} </span>}
+                            {response && <span className="login-message" style={{color: 'green'}}>Usuario logueado con exito </span>}
+                        </div>
                         <div className="button-container">
                             {
                                 loading

@@ -1,36 +1,6 @@
 .channel-detail {
-    flex: 1;
     background: #36393f;
     display: flex;
     flex-direction: column;
-}
-
-.channel-not-selected {
-    padding: 20px;
-    color: #8e9297;
-}
-
-.messages-loading {
-    color: #8e9297;
-    padding: 20px;
-}
-
-.messages-error {
-    color: #ed4245;
-    padding: 20px;
-}
-
-.messages-container {
-    flex: 1;
-    padding: 20px;
-    overflow-y: auto;
-}
-
-.message-item {
-    margin-bottom: 15px;
-    color: white;
-}
-
-.message-content {
-    margin: 5px 0;
+    width: 100%;
 }
