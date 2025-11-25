@@ -15,8 +15,6 @@ body, html {
     min-height: 100vh;
     min-height: -webkit-fill-available;
     min-height: 100dvh;
-    border-top: 1px solid #545252;
-    border-bottom: 1px solid #545252;
 }
 
 
@@ -24,18 +22,24 @@ body, html {
     position: relative;
     overflow: visible !important;
     height: 100vh;
+    height: 100dvh;
     width: 80px;
+    border-top: 1px solid #545252;
+    border-bottom: 1px solid #545252;
 }
 
 .channel_sidebar{
     position: relative;
     overflow: visible !important;
     height: 100vh;
+    height: 100dvh;
     width: 300px;
     background-color: #1a1a1b;
     border-left: 1px solid #545252;
     border-right: 1px solid #545252;
     border-radius: 5px;
+    border-top: 1px solid #545252;
+    border-bottom: 1px solid #545252;
 }
 
 .workspace-selection-message {
@@ -56,11 +60,14 @@ body, html {
 
 .channel-detail{
     height: 100vh;
+    height: 100dvh;
     width: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
+    border-top: 1px solid #545252;
+    border-bottom: 1px solid #545252;
 }
 
 .chat-view {
