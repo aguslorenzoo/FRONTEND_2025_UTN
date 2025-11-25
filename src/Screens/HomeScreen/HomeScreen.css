@@ -15,7 +15,10 @@ body, html {
     min-height: 100vh;
     min-height: -webkit-fill-available;
     min-height: 100dvh;
+    border-top: 1px solid #545252;
+    border-bottom: 1px solid #545252;
 }
+
 
 .workspace-sidebar{
     position: relative;
