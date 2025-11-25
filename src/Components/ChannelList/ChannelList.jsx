@@ -20,7 +20,7 @@ const ChannelList = ({channel_list, onChannelDeleted}) => {
         setSelectedChannel(null)
         if (onChannelDeleted) {
             onChannelDeleted()
-        }
+        } 
     }
     return (
         <div className="channelList-container">
