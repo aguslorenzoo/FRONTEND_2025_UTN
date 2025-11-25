@@ -15,7 +15,7 @@ const WorkspaceSidebar = () => {
             async () => await getWorkspaces()
         )
     }
-
+ 
     useEffect(
             () => {
             loadWorkspaceList()
