@@ -154,13 +154,6 @@
         left: 80px;
         z-index: 5;
     }
-
-
-    .channel-detail:not(:empty) .mobile-header {
-        padding-top: max(12px, env(safe-area-inset-top));
-        padding-left: max(16px, env(safe-area-inset-left));
-        padding-right: max(16px, env(safe-area-inset-right));
-    }
 }
 
 @media screen and (min-width: 711px) {
@@ -190,34 +183,4 @@
         padding: 15px;
         font-size: 14px;
     }
-}
-
-@supports (padding: max(0px)) {
-    .home-screen {
-        padding-left: env(safe-area-inset-left);
-        padding-right: env(safe-area-inset-right);
-        padding-top: env(safe-area-inset-top);
-        padding-bottom: env(safe-area-inset-bottom);
-        
-        height: 100vh;
-        min-height: -webkit-fill-available;
-        height: 100dvh;
-    }
-}
-
-@supports (-webkit-touch-callout: none) {
-    .home-screen {
-        height: -webkit-fill-available;
-    }
-    
-    .channel-detail:not(:empty) {
-        height: -webkit-fill-available;
-    }
-}
-
-.home-screen,
-.workspace-sidebar,
-.channel-sidebar,
-.channel-detail {
-    background: #36393f !important;
 }
