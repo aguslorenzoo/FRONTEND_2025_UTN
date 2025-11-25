@@ -24,8 +24,6 @@ body, html {
     height: 100vh;
     height: 100dvh;
     width: 80px;
-    border-top: 1px solid #545252;
-    border-bottom: 1px solid #545252;
 }
 
 .channel_sidebar{
@@ -38,8 +36,6 @@ body, html {
     border-left: 1px solid #545252;
     border-right: 1px solid #545252;
     border-radius: 5px;
-    border-top: 1px solid #545252;
-    border-bottom: 1px solid #545252;
 }
 
 .workspace-selection-message {
