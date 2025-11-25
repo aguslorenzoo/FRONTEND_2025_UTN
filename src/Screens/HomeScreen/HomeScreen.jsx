@@ -37,7 +37,7 @@ const HomeScreen = () => {
                     channel_id ? (
                         <div className="chat-view">
                             <div className="mobile-back-header"
-                            /* style={{
+                            style={{
                                 display: 'flex !important',
                                 position: 'fixed',
                                 top: '0',
@@ -48,7 +48,7 @@ const HomeScreen = () => {
                                 padding: '12px 16px',
                                 zIndex: 1000,
                                 color: 'white'
-                            }} */>
+                            }}>
                                 <button onClick={handleBackToChannels} className="back-button">
                                     ← 
                                 </button>
