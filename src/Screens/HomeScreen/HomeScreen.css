@@ -106,7 +106,6 @@
         overflow: hidden;
     }
     
-    /* Cuando HAY canal: mostrar solo chat */
     .home-screen.has-channel .workspace-sidebar,
     .home-screen.has-channel .channel_sidebar {
         display: none !important;
@@ -122,18 +121,15 @@
         z-index: 100;
     }
     
-    /* Mostrar botón de volver en mobile cuando hay canal */
     .home-screen.has-channel .mobile-back-header {
         display: flex !important;
     }
     
-    /* Ajustar altura del chat */
     .home-screen.has-channel .chat-view {
         height: calc(100vh - 50px);
         height: calc(100dvh - 50px);
     }
     
-    /* Cuando NO hay canal: mostrar solo sidebars */
     .home-screen.no-channel .channel-detail {
         display: none !important;
     }
@@ -148,7 +144,6 @@
         left: 0;
     }
     
-    /* Sidebars específicos en mobile sin canal */
     .home-screen.no-channel .workspace-sidebar {
         width: 80px !important;
         z-index: 10;
@@ -158,6 +153,13 @@
         width: calc(100vw - 80px) !important;
         left: 80px;
         z-index: 5;
+    }
+
+
+    .channel-detail:not(:empty) .mobile-header {
+        padding-top: max(12px, env(safe-area-inset-top));
+        padding-left: max(16px, env(safe-area-inset-left));
+        padding-right: max(16px, env(safe-area-inset-right));
     }
 }
 
@@ -173,7 +175,6 @@
     }
 }
 
-/* Móviles más pequeños */
 @media screen and (max-width: 480px) {
     .home-screen.no-channel .workspace-sidebar {
         width: 70px !important;
@@ -189,4 +190,34 @@
         padding: 15px;
         font-size: 14px;
     }
+}
+
+@supports (padding: max(0px)) {
+    .home-screen {
+        padding-left: env(safe-area-inset-left);
+        padding-right: env(safe-area-inset-right);
+        padding-top: env(safe-area-inset-top);
+        padding-bottom: env(safe-area-inset-bottom);
+        
+        height: 100vh;
+        min-height: -webkit-fill-available;
+        height: 100dvh;
+    }
+}
+
+@supports (-webkit-touch-callout: none) {
+    .home-screen {
+        height: -webkit-fill-available;
+    }
+    
+    .channel-detail:not(:empty) {
+        height: -webkit-fill-available;
+    }
+}
+
+.home-screen,
+.workspace-sidebar,
+.channel-sidebar,
+.channel-detail {
+    background: #36393f !important;
 }
