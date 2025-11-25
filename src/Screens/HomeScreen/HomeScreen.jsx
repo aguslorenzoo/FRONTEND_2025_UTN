@@ -37,18 +37,19 @@ const HomeScreen = () => {
                     channel_id ? (
                         <div className="chat-view">
                             <div className="mobile-back-header"
-                            style={{
-                                display: 'flex !important',
-                                position: 'fixed',
-                                top: '0',
-                                left: '0',
-                                width: '100%',
-                                background: '#1a1a1b',
-                                borderBottom: '1px solid #545252',
-                                padding: '12px 16px',
-                                zIndex: 1000,
-                                color: 'white'
-                            }}>
+                                style={{
+                                    display: 'flex !important',
+                                    alignItems: 'center',
+                                    position: 'fixed',
+                                    top: '0',
+                                    left: '0',
+                                    width: '100%',
+                                    background: '#1a1a1b',
+                                    borderBottom: '1px solid #545252',
+                                    padding: '12px 16px',
+                                    zIndex: 1000,
+                                    color: 'white'
+                                }}>
                                 <button onClick={handleBackToChannels} className="back-button">
                                     ← 
                                 </button>
