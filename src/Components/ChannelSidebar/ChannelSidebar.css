@@ -110,6 +110,9 @@
     border: 1px solid #262626;
     font-size: 14px;
     transition: all 0.2s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .invite-button:hover{
@@ -141,4 +144,31 @@
 
 .create-channel-btn:hover{
     background-color: #3d3c3c;
+}
+
+@media screen and (max-width:710px){
+    .channel-sidebar-title{
+        font-size: 16px;
+    }
+
+    .channel-category-title{
+        font-size: 14px;
+    }
+
+    .invite-button{
+        width: 93%;
+    }
+}
+
+
+@media screen and (max-width: 450px){
+    .invite-button{
+        width: 90%;
+    }
+}
+
+@media screen and (max-width: 300px){
+    .invite-button{
+        width: 88%;
+    }
 }

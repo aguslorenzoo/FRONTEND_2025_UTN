@@ -47,3 +47,10 @@
 .channel-card:hover{
     background-color: #3d3c3c;
 }
+
+
+@media screen and (max-width: 710px) {
+    .channel-card{
+        font-size: 12px;
+    }
+}

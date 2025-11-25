@@ -74,6 +74,12 @@
     flex-direction: column;
     justify-content: center;
     padding: 5px 10px;
+
+    word-wrap: break-word;       
+    overflow-wrap: break-word;    
+    white-space: normal; 
+    min-height: fit-content;
+    height: auto;
 }
 
 .message:hover {
@@ -183,4 +189,70 @@
 
 .message-list::-webkit-scrollbar-thumb:hover {
     background: #a8a8a8;
+}
+
+@media screen and (max-width: 1500px) {
+    .message{
+        height: 45px;
+        max-width: 500px;
+        min-width: 200px;
+    }
+
+    .message p{
+        font-size: 13px;
+        margin: 2px 0;
+    }
+
+    .message small{
+        font-size: 10px;
+    }
+
+    .message strong{
+        font-size: 12px;
+    }
+
+    .other-message{
+        height: 50px;
+    }
+}
+
+@media screen and (max-width: 950px) {
+    .message{
+        height: 45px;
+        max-width: 400px;
+        min-width: 200px;
+    }
+}
+
+@media screen and (max-width: 800px) {
+    .message{
+        height: 40px;
+        max-width: 300px;
+        min-width: 200px;
+    }
+
+    .message p{
+        font-size: 12px;
+        margin: 2px 0;
+    }
+
+    .message small{
+        font-size: 9px;
+    }
+
+    .message strong{
+        font-size: 11px;
+    }
+
+    .other-message{
+        height: 45px;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .message{
+        height: 40px;
+        max-width: 200px;
+        min-width: 100px;
+    }
 }

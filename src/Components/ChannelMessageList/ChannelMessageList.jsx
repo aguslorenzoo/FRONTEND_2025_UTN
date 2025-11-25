@@ -1,9 +1,9 @@
 import React, { useState, useEffect, useContext } from 'react'
 import { getMessagesByChannelId, sendMessage } from '../../services/messagesService.js'
 import './ChannelMessageList.css'
-import { useLocation } from 'react-router'
+import { useLocation } from 'react-router' 
 import { getCurrentMemberId } from '../../services/memberService.js'
-import 'bootstrap-icons/font/bootstrap-icons.css';
+import 'bootstrap-icons/font/bootstrap-icons.css'; 
 
 
 const ChannelMessageList = ({ workspace_id, channel_id }) => {

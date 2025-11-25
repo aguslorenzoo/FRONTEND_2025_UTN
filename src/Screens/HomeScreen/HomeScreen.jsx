@@ -1,20 +1,26 @@
 import React from "react";
-import { useParams } from "react-router";
+import { useParams, useNavigate, useLocation } from "react-router";
 import WorkspaceSidebar from "../../Components/WorkspaceSidebar/WorkspaceSidebar.jsx";
 import ChannelDetail from "../../Components/ChannelDetail/ChannelDetail.jsx";
 import ChannelSidebar from "../../Components/ChannelSidebar/ChannelSidebar.jsx";
 import "./HomeScreen.css";
 
 const HomeScreen = () => {
-    const { workspace_id, channel_id } = useParams();
-    
+    const { workspace_id, channel_id } = useParams()
+    const navigate = useNavigate()
+    const location = useLocation() 
+
+    const handleBackToChannels = () => {
+        navigate(`/workspace/${workspace_id}`);
+    }
+     
+    const channel_name = location.state?.channel_name || 'Canal'
+
     return ( 
-        <div className="home-screen">
+        <div className={`home-screen ${channel_id ? 'has-channel' : 'no-channel'}`}>
             <div className="workspace-sidebar">
                 <WorkspaceSidebar />
             </div>
-            
-        
             <div className="channel_sidebar">
                 {
                     workspace_id ? (<ChannelSidebar />) : (
@@ -26,10 +32,31 @@ const HomeScreen = () => {
                     )
                 }    
             </div>
-            
             <div className="channel-detail">
                 {
-                    channel_id ? (<ChannelDetail />) : (
+                    channel_id ? (
+                        <div className="chat-view">
+                            <div className="mobile-back-header"
+                            /* style={{
+                                display: 'flex !important',
+                                position: 'fixed',
+                                top: '0',
+                                left: '0',
+                                width: '100%',
+                                background: '#1a1a1b',
+                                borderBottom: '1px solid #545252',
+                                padding: '12px 16px',
+                                zIndex: 1000,
+                                color: 'white'
+                            }} */>
+                                <button onClick={handleBackToChannels} className="back-button">
+                                    ← 
+                                </button>
+                                <div># {channel_name}</div>
+                            </div>
+                            <ChannelDetail />
+                        </div>
+                    ) : (
                         <div className="channel-selection-content">
                             <div className="channel-selection-message">
                                 {

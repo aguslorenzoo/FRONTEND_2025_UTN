@@ -7,7 +7,7 @@ const ChannelList = ({channel_list, onChannelDeleted}) => {
     const {workspace_id} = useParams()
     const [isDeleteChannelOpen, setIsDeleteChannelOpen] = useState(false)
     const [selectedChannel, setSelectedChannel] = useState(null)
-
+    
     const handleDeleteClick = (e, channel) => {
         e.preventDefault()
         e.stopPropagation()
@@ -30,7 +30,7 @@ const ChannelList = ({channel_list, onChannelDeleted}) => {
                 : channel_list.map(
                     (channel) => {
                         return (
-                            <div className="channel-container" >
+                            <div className="channel-container" key={channel._id} >
                                 <Link 
                                     className="channel-link" 
                                     key={channel._id} to={`/workspace/${workspace_id}/${channel._id}`}
@@ -48,22 +48,23 @@ const ChannelList = ({channel_list, onChannelDeleted}) => {
                                         </button>
                                     </div>
                                 </Link>
-                                    <DeleteChannel
-                                        isOpen={isDeleteChannelOpen}
-                                        onClose={
-                                            () => {
-                                                setIsDeleteChannelOpen(false)
-                                                setSelectedChannel(null)
-                                            }
-                                        }
-                                        channel={selectedChannel}
-                                        onChannelDeleted={handleChannelDeleted}
-                                    />
                             </div>
                         )
                     }
                 )
             }
+            <DeleteChannel
+                isOpen={isDeleteChannelOpen}
+                onClose={
+                    () => {
+                        setIsDeleteChannelOpen(false)
+                        setSelectedChannel(null)
+                    }
+                }
+                channel={selectedChannel}
+                workspace_id={workspace_id}
+                onChannelDeleted={handleChannelDeleted}
+            />
         </div>
     )
 }

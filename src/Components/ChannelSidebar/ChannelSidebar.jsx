@@ -1,5 +1,5 @@
 import React, { useState ,useEffect } from "react"; 
-import ChannelList from "../ChannelList/ChannelList.jsx";
+import ChannelList from "../ChannelList/ChannelList.jsx"; 
 import useFetch from "../../hooks/useFetch.jsx";
 import { useLocation, useParams, useNavigate } from "react-router"; 
 import { getChannelList } from "../../services/channelService.js";
@@ -75,7 +75,7 @@ const ChannelSidebar = () => {
             <DeleteWorkspace
                 isOpen={isDeleteWorkspaceModalOpen}
                 onClose={() => setIsDeleteWorkspaceModalOpen(false)}
-                workspace={{ _id: workspace_id, name: workspaceName }}
+                workspace={{ _id: workspace_id, name: workspaceName }} 
                 onWorkspaceDeleted={handleWorkspaceDeleted}
             />
 

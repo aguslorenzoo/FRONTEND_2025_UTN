@@ -2,16 +2,15 @@ import React, { useState } from 'react';
 import { deleteChannel } from '../../services/channelService.js';
 import "./DeleteChannel.css"
 
-const DeleteChannel = ({ isOpen, onClose, channel, onChannelDeleted }) => {
+const DeleteChannel = ({ isOpen, onClose, channel, workspace_id, onChannelDeleted }) => {
     const [loading, setLoading] = useState(false)
     const [error, setError] = useState('')
 
     const handleDelete = async () => {
         setLoading(true)
         setError('')
-        
         try {
-            await deleteChannel(channel._id)
+            await deleteChannel(workspace_id, channel._id)
             onChannelDeleted()
             onClose()
         } catch (err) {
@@ -33,7 +32,7 @@ const DeleteChannel = ({ isOpen, onClose, channel, onChannelDeleted }) => {
                 </div>
                 
                 <div className="delete-warning">
-                    <p>¿Estás seguro de que quieres eliminar el canal<strong>"{channel.name}"</strong>?</p>
+                    <p>¿Estás seguro de que quieres eliminar el canal <strong>"{channel.name}"</strong>?</p>
                     <p className="warning-text">Esta acción no se puede deshacer. Se eliminarán todos los mensajes.</p>
                 </div>
                 

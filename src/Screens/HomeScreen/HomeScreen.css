@@ -1,5 +1,6 @@
 .home-screen {
-    display: flex;
+    display: flex; 
+    height: 100dvh;
     height: 100vh;
     width: 100vw;
     background: #1a1a1b; 
@@ -11,15 +12,14 @@
     position: relative;
     overflow: visible !important;
     height: 100vh;
-    width: 6%;
+    width: 80px;
 }
-
 
 .channel_sidebar{
     position: relative;
     overflow: visible !important;
     height: 100vh;
-    width: 16%;
+    width: 300px;
     background-color: #1a1a1b;
     border-left: 1px solid #545252;
     border-right: 1px solid #545252;
@@ -42,14 +42,45 @@
     font-weight: 500;
 }
 
-
-
 .channel-detail{
     height: 100vh;
     width: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-direction: column;
+}
+
+.chat-view {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.mobile-back-header {
+    display: none;
+    align-items: center;
+    padding: 12px 16px;
+    background: #36393f;
+    border-bottom: 1px solid #2f3136;
+    min-height: 50px;
+    width: 100%;
+    color: white;
+}
+
+.back-button {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 16px;
+    padding: 12px 16px;
+    cursor: pointer;
+    font-weight: 500;
+}
+
+.back-button:hover {
+    background: rgba(255, 255, 255, 0.1);
 }
 
 .channel-selection-message {
@@ -67,5 +98,95 @@
     text-align: center;
     height: 100vh;
     width: 100%;
+}
+
+@media screen and (max-width: 710px) {
+    .home-screen {
+        position: relative;
+        overflow: hidden;
+    }
     
+    /* Cuando HAY canal: mostrar solo chat */
+    .home-screen.has-channel .workspace-sidebar,
+    .home-screen.has-channel .channel_sidebar {
+        display: none !important;
+    }
+    
+    .home-screen.has-channel .channel-detail {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw !important;
+        height: 100vh !important;
+        height: 100dvh !important;
+        z-index: 100;
+    }
+    
+    /* Mostrar botón de volver en mobile cuando hay canal */
+    .home-screen.has-channel .mobile-back-header {
+        display: flex !important;
+    }
+    
+    /* Ajustar altura del chat */
+    .home-screen.has-channel .chat-view {
+        height: calc(100vh - 50px);
+        height: calc(100dvh - 50px);
+    }
+    
+    /* Cuando NO hay canal: mostrar solo sidebars */
+    .home-screen.no-channel .channel-detail {
+        display: none !important;
+    }
+    
+    .home-screen.no-channel .workspace-sidebar,
+    .home-screen.no-channel .channel_sidebar {
+        width: 100vw !important;
+        height: 100vh !important;
+        height: 100dvh !important;
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+    
+    /* Sidebars específicos en mobile sin canal */
+    .home-screen.no-channel .workspace-sidebar {
+        width: 80px !important;
+        z-index: 10;
+    }
+    
+    .home-screen.no-channel .channel_sidebar {
+        width: calc(100vw - 80px) !important;
+        left: 80px;
+        z-index: 5;
+    }
+}
+
+@media screen and (min-width: 711px) {
+    .workspace-sidebar,
+    .channel_sidebar,
+    .channel-detail {
+        display: flex !important;
+    }
+    
+    .mobile-back-header {
+        display: none !important;
+    }
+}
+
+/* Móviles más pequeños */
+@media screen and (max-width: 480px) {
+    .home-screen.no-channel .workspace-sidebar {
+        width: 70px !important;
+    }
+    
+    .home-screen.no-channel .channel_sidebar {
+        width: calc(100vw - 70px) !important;
+        left: 70px;
+    }
+    
+    .workspace-selection-message,
+    .channel-selection-message {
+        padding: 15px;
+        font-size: 14px;
+    }
 }

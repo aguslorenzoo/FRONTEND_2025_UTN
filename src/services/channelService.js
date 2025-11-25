@@ -42,7 +42,7 @@ async function createChannel(workspace_id, channel_name) {
 
 async function deleteChannel (workspace_id, channel_id){
     const response_http = await fetch (
-        ENVIRONMENT.URL_API + `/api/workspace/:workspace_id/channels/:channel_id`,
+        ENVIRONMENT.URL_API + `/api/workspace/${workspace_id}/channels/${channel_id}`,
         {
             method: 'DELETE',
             headers: {
@@ -50,6 +50,9 @@ async function deleteChannel (workspace_id, channel_id){
             }
         }
     )
+    console.log("Workspace ID:", workspace_id);
+    console.log("Channel ID:", channel_id);
+    
     const response = await response_http.json()
     
     if(!response_http.ok){
