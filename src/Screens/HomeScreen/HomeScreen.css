@@ -66,8 +66,6 @@ body, html {
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    border-top: 1px solid #545252;
-    border-bottom: 1px solid #545252;
 }
 
 .chat-view {
