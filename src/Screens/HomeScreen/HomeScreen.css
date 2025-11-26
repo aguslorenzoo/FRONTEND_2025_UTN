@@ -13,7 +13,6 @@ body, html {
     font-family: sans-serif;
     box-sizing: border-box;
     min-height: 100vh;
-    min-height: -webkit-fill-available;
     min-height: 100dvh;
 }
 
@@ -24,6 +23,7 @@ body, html {
     height: 100vh;
     height: 100dvh;
     width: 80px;
+    z-index: 100 !important;
 }
 
 .channel_sidebar{
@@ -186,4 +186,20 @@ body, html {
         padding: 15px;
         font-size: 14px;
     }
+}
+
+body.modal-open .workspace-sidebar,
+body.modal-open .channel_sidebar,
+body.modal-open .channel-sidebar,
+body.modal-open .home-screen * {
+    z-index: 100 !important;
+    opacity: 1 !important; 
+}
+
+.modal-overlay {
+    z-index: 9999 !important;
+}
+
+.modal-content {
+    z-index: 10000 !important;
 }

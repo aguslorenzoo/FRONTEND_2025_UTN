@@ -6,6 +6,7 @@ import HomeScreen from "./Screens/HomeScreen/HomeScreen.jsx"
 import AuthMiddleware from "./Middleware/authMiddleware.jsx"
 import "./App.css"
 
+
 function App() {
 
   return (

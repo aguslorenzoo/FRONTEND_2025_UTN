@@ -3,3 +3,39 @@
     color: white;
     box-sizing: border-box;
 }
+
+.workspace-sidebar {
+    z-index: 100 !important;
+}
+
+.channel_sidebar {
+    z-index: 100 !important; 
+}
+
+.channel-sidebar {
+    z-index: 100 !important; 
+}
+
+.modal-overlay {
+    z-index: 9999 !important;
+    position: fixed !important;
+}
+
+.modal-content {
+    z-index: 10000 !important;
+}
+
+@media screen and (max-width: 768px) {
+    .workspace-sidebar {
+        z-index: 100 !important;
+    }
+    
+    .channel_sidebar {
+        z-index: 100 !important; 
+    }
+    
+    .modal-overlay {
+        z-index: 9999 !important;
+    }
+}
+
