@@ -31,7 +31,7 @@ const CreateChannelModal = ({ isOpen, onClose, workspace_id, onChannelCreated })
     if (!isOpen) return null
 
     return (
-        <div className="modal-container" onClick={onClose}>
+        <div className="modal-overlay" onClick={onClose}>
             <div className="modal-content" onClick={(e) => e.stopPropagation()}>
                 <div className="modal-header">
                     <h3>Crear nuevo canal</h3>

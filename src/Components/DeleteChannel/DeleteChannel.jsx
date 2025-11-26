@@ -24,7 +24,7 @@ const DeleteChannel = ({ isOpen, onClose, channel, workspace_id, onChannelDelete
     if (!isOpen) return null;
 
     return (
-        <div className="modal-container" onClick={onClose}>
+        <div className="modal-overlay" onClick={onClose}>
             <div className="modal-content delete-modal" onClick={(e) => e.stopPropagation()}>
                 <div className="modal-header">
                     <h3>Eliminar Canal</h3>
