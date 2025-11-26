@@ -9,7 +9,7 @@
     padding: 10px 0;
     overflow-y: auto;
     position: relative;
-    z-index: 1000 !important;
+    z-index: 100 !important;
 }
 
 .workspace-item {
@@ -75,7 +75,7 @@
     font-size: 14px;
     font-weight: 500;
     white-space: nowrap;
-    z-index: 10000 !important;
+    z-index: 1040 !important;
     opacity: 0;
     visibility: hidden;
     transition: all 0.2s ease;
@@ -151,6 +151,7 @@
     .workspace-sidebar {
         width: 70px !important;
         padding: 5px 0;
+        z-index: 100 !important;
     }
     
     .workspace-link {
@@ -183,6 +184,7 @@
 @media screen and (max-width: 480px) {
     .workspace-sidebar {
         width: 60px !important;
+        z-index: 100 !important;
     }
     
     .workspace-link {
@@ -210,5 +212,6 @@
 @media screen and (max-width: 1024px) and (min-width: 769px) {
     .workspace-sidebar {
         width: 70px;
+        z-index: 100 !important;
     }
 }
