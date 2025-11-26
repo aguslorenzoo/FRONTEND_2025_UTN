@@ -11,7 +11,7 @@ const DeleteWorkspace = ({ isOpen, onClose, workspace, onWorkspaceDeleted }) => 
         setError('')
         
         try {
-            await deleteWorkspace(workspace._id)
+            await deleteWorkspace(workspace.workspace_id)
             onWorkspaceDeleted()
             onClose()
         } catch (err) {

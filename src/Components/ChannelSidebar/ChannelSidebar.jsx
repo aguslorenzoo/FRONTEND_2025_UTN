@@ -1,4 +1,4 @@
-import React, { useState ,useEffect } from "react"; 
+import React, { useState, useEffect } from "react"; 
 import ChannelList from "../ChannelList/ChannelList.jsx"; 
 import useFetch from "../../hooks/useFetch.jsx";
 import { useLocation, useParams, useNavigate } from "react-router"; 
@@ -7,6 +7,8 @@ import "./ChannelSidebar.css"
 import InviteToWorkspace from "../InviteToWorkspace/InviteToWorkspace.jsx";
 import CreateChannelModal from "../CreateChannel/CreateChannelModal.jsx";
 import DeleteWorkspace from "../DeleteWorkspace/DeleteWorkspace.jsx";
+import EditWorkspaceModal from "../EditWorkspaceModal/EditWorkspaceModal.jsx";
+import WorkspaceOptionsMenu from "../WorkspaceOptionsMenu/WorkspaceOptionsMenu.jsx";
 
 const ChannelSidebar = () => {
     const {response, loading, error, sendRequest} = useFetch()
@@ -15,8 +17,16 @@ const ChannelSidebar = () => {
     const [isInviteModalOpen, setIsInviteModalOpen] = useState(false)
     const [isCreateChannelModalOpen, setIsCreateChannelModalOpen] = useState(false)
     const navigate = useNavigate()
-    const [isDeleteWorkspaceModalOpen, setIsDeleteWorkspaceModalOpen] = useState(false)
-    
+    const [optionsMenu, setOptionsMenu] = useState(
+        {
+            isOpen: false,
+            position: { x: 0, y: 0 },
+            workspace: null
+        }
+    )
+    const [editModalOpen, setEditModalOpen] = useState(false)
+    const [deleteModalOpen, setDeleteModalOpen] = useState(false)
+    const [selectedWorkspace, setSelectedWorkspace] = useState(null)
 
     async function loadChannelList (){
         await sendRequest(
@@ -31,34 +41,69 @@ const ChannelSidebar = () => {
         [workspace_id]
     )
 
-    console.log(response, error, loading)
+    const handleOptionsClick = (event) => {
+        event.preventDefault()
+        event.stopPropagation()
+        
+        const workspace = {
+            workspace_id: workspace_id,
+            workspace_name: location.state?.workspace_name || 'Workspace'
+        }
+        
+        setOptionsMenu({
+            isOpen: true,
+            position: { x: event.clientX, y: event.clientY },
+            workspace: workspace
+        })
+    }
+
+    const closeOptionsMenu = () => {
+        setOptionsMenu({ isOpen: false, position: { x: 0, y: 0 }, workspace: null })
+    }
+
+    const handleEditWorkspace = (workspace) => {
+        setSelectedWorkspace(workspace)
+        setEditModalOpen(true)
+    }
+
+    const handleDeleteWorkspace = (workspace) => {
+        setSelectedWorkspace(workspace)
+        setDeleteModalOpen(true)
+    }
 
     const handleWorkspaceDeleted = () => {
         navigate('/home') 
     }
 
-    const workspaceName = location.state?.workspace_name || 'Workspace';
+    const handleWorkspaceUpdated = () => {
+        window.location.reload()
+    }
+
+    const workspaceName = location.state?.workspace_name || 'Workspace'
     
     return (
         <div className="channel-sidebar">
             <div className="channel-sidebar-header">
-                    <h3 className="channel-sidebar-title">
-                        Workspace
-                    </h3>
-                    <button 
-                        className="delete-workspace-btn"
-                        onClick={() => setIsDeleteWorkspaceModalOpen(true)}
-                        title="Eliminar workspace"
-                    >
-                        <i className="bi bi-trash"></i>
-                    </button>
+                <h3 className="channel-sidebar-title">
+                    {workspaceName}
+                </h3>
+                <button 
+                    className="workspace-options-btn"
+                    onClick={handleOptionsClick}
+                    title="Opciones del workspace"
+                >
+                    ⋮
+                </button>
             </div>
+            
             <div className="title-separator" />
+            
             <div className="invite-button-contianer">
                 <button className="invite-button" onClick={() => setIsInviteModalOpen(true)}>
                     Invitar
                 </button>   
             </div>
+            
             <InviteToWorkspace 
                 isOpen={isInviteModalOpen}
                 onClose={() => setIsInviteModalOpen(false)}
@@ -72,10 +117,27 @@ const ChannelSidebar = () => {
                 workspace_id={workspace_id}
                 onChannelCreated={loadChannelList}
             />
+
+            <WorkspaceOptionsMenu
+                isOpen={optionsMenu.isOpen}
+                onClose={closeOptionsMenu}
+                position={optionsMenu.position}
+                workspace={optionsMenu.workspace}
+                onEdit={handleEditWorkspace}
+                onDelete={handleDeleteWorkspace}
+            />
+            
+            <EditWorkspaceModal
+                isOpen={editModalOpen}
+                onClose={() => setEditModalOpen(false)}
+                workspace={selectedWorkspace}
+                onWorkspaceUpdated={handleWorkspaceUpdated}
+            />
+            
             <DeleteWorkspace
-                isOpen={isDeleteWorkspaceModalOpen}
-                onClose={() => setIsDeleteWorkspaceModalOpen(false)}
-                workspace={{ _id: workspace_id, name: workspaceName }} 
+                isOpen={deleteModalOpen}
+                onClose={() => setDeleteModalOpen(false)}
+                workspace={selectedWorkspace}
                 onWorkspaceDeleted={handleWorkspaceDeleted}
             />
 

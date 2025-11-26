@@ -1,0 +1,43 @@
+.workspace-options-menu {
+    position: fixed;
+    background: #36393f;
+    border: 1px solid #2f3136;
+    border-radius: 8px;
+    padding: 8px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    min-width: 180px;
+}
+
+.menu-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+    padding: 10px 12px;
+    background: none;
+    border: none;
+    color: #b9bbbe;
+    cursor: pointer;
+    border-radius: 4px;
+    font-size: 14px;
+    text-align: left;
+}
+
+.menu-item:hover {
+    background: rgba(79, 84, 92, 0.16);
+    color: white;
+}
+
+.edit-item:hover {
+    color: #5865f2;
+}
+
+.delete-item:hover {
+    color: #ed4245;
+}
+
+.menu-item span {
+    font-size: 16px;
+    width: 20px;
+}

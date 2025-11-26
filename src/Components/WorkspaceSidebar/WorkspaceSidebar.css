@@ -146,3 +146,69 @@
     color: red;
     font-size: 12px;
 }
+
+@media screen and (max-width: 768px) {
+    .workspace-sidebar {
+        width: 70px !important;
+        padding: 5px 0;
+    }
+    
+    .workspace-link {
+        width: 45px;
+        height: 45px;
+        border-radius: 12px;
+    }
+    
+    .workspace-link.active::before {
+        left: -8px;
+        height: 35px;
+        width: 3px;
+    }
+    
+    .workspace-efect {
+        display: none; 
+    }
+    
+    .create-workspace-btn {
+        width: 45px;
+        height: 45px;
+        font-size: 18px;
+    }
+    
+    .workspace-separator {
+        width: 45px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .workspace-sidebar {
+        width: 60px !important;
+    }
+    
+    .workspace-link {
+        width: 40px;
+        height: 40px;
+        border-radius: 10px;
+        font-size: 12px;
+    }
+    
+    .workspace-initial {
+        font-size: 12px;
+    }
+    
+    .create-workspace-btn {
+        width: 40px;
+        height: 40px;
+        font-size: 16px;
+    }
+    
+    .workspace-separator {
+        width: 40px;
+    }
+}
+
+@media screen and (max-width: 1024px) and (min-width: 769px) {
+    .workspace-sidebar {
+        width: 70px;
+    }
+}

@@ -12,6 +12,8 @@ body{
     display: flex;
     align-items: center;
     justify-content: center;
+    padding: 20px;
+    box-sizing: border-box;
 }
 
 .register-container{
@@ -20,25 +22,29 @@ body{
     box-sizing: border-box;
     border: 3px solid #212121;
     border-radius: 10px;
-    height: 550px;
-    width: 400px;
+    height: auto;
+    min-height: 550px;
+    width: 100%;
+    max-width: 400px;
     background-color: #212121;
 }
 
 .form-container{
     width: 100%;
-    padding-left: 15px;
-    padding-right: 15px;
+    padding: 20px;
+    box-sizing: border-box;
 }
 
 .form-container h1{
     display: flex;
     justify-content: center;
-    margin: 10px;
+    margin: 20px 0;
+    text-align: center;
+    font-size: 22px;
 }
 
 .form-content .form-field{
-    padding: 15px;
+    padding: 10px 15px;
 }
 
 .form-field-title{
@@ -56,15 +62,16 @@ body{
     border-radius: 50px;
     padding: 10px;
     margin: 0;
+    box-sizing: border-box;
+    color: white;
 }
 
 .button-container{
     display: flex;
     justify-content: center;
     align-items: center;
-    padding-left: 15px;
-    padding-right: 15px;
-    margin: 10px;
+    padding: 0 15px;
+    margin: 20px 0;
 }
 
 .button {
@@ -76,6 +83,12 @@ body{
     background-color: white;
     border: 1px solid white;
     border-radius: 50px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.button:hover {
+    background-color: #f0f0f0;
 }
 
 .button-loading {
@@ -87,15 +100,16 @@ body{
     background-color: white;
     border: 1px solid white;
     border-radius: 50px;
+    cursor: not-allowed;
+    opacity: 0.7;
 }
 
 .register-message{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-left: 25px;
-    margin-right: 25px;
+    display: block;
+    text-align: center;
     font-size: 14px;
+    margin: 10px 25px;
+    line-height: 1.4;
 }
 
 input:focus {
@@ -107,7 +121,10 @@ input:focus {
 input:-webkit-autofill {
     -webkit-box-shadow: 0 0 0px 1000px #424242 inset;
     -webkit-text-fill-color: white;
+    border: 1px solid #686464;
+    border-radius: 50px;
 }
+
 .title{
     background-color: #424242;
     display: flex;
@@ -119,7 +136,7 @@ input:-webkit-autofill {
 
 .form-field{
     width: 100%;
-    padding: 20px;
+    padding: 10px 20px;
     box-sizing: border-box;
 }
 
@@ -132,15 +149,144 @@ input:-webkit-autofill {
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-top: 14px;
+    margin-top: 20px;
+    flex-wrap: wrap;
+    gap: 5px;
 }
 
 .link-text {
     color: #0088ff;
     font-weight: bold;
     cursor: pointer;
-    margin-left: 5px;
+    transition: color 0.2s ease;
 }
 
+.link-text:hover {
+    color: #66b3ff;
+    text-decoration: underline;
+}
 
+@media screen and (max-width: 480px) {
+    .container {
+        padding: 20px 15px;
+        align-items: center; 
+        justify-content: center;
+        min-height: 100vh;
+        padding-top: 20px;
+        padding-bottom: 20px;
+    }
+    
+    .register-container {
+        max-width: 100%;
+        min-height: auto;
+        border-width: 2px;
+        margin: 0;
+    }
+    
+    .form-container {
+        padding: 20px;
+    }
+    
+    .form-container h1 {
+        font-size: 20px;
+        margin: 10px 0 15px 0;
+    }
+    
+    .form-content .form-field {
+        padding: 8px 10px;
+    }
+    
+    .form-field {
+        padding: 8px 10px;
+    }
+    
+    .form-field-title {
+        font-size: 15px;
+    }
+    
+    .form-field-content {
+        font-size: 15px;
+        height: 38px;
+        padding: 8px 12px;
+    }
+    
+    .button-container {
+        margin: 15px 0;
+        padding: 0 10px;
+    }
+    
+    .button,
+    .button-loading {
+        height: 42px;
+        font-size: 15px;
+    }
+    
+    .register-message {
+        font-size: 13px;
+        margin: 8px 15px;
+    }
+    
+    .login-link {
+        font-size: 14px;
+        margin-top: 15px;
+    }
+}
 
+@media screen and (max-width: 360px) {
+    .container {
+        padding: 15px 10px;
+        align-items: center; 
+        justify-content: center;
+        padding-top: 15px;
+        padding-bottom: 15px;
+    }
+    
+    .register-container {
+        min-height: auto;
+    }
+    
+    .form-container {
+        padding: 15px;
+    }
+    
+    .form-container h1 {
+        font-size: 18px;
+        margin: 8px 0 12px 0;
+    }
+    
+    .form-content .form-field {
+        padding: 6px 8px;
+    }
+    
+    .form-field {
+        padding: 6px 8px;
+    }
+    
+    .form-field-title {
+        font-size: 14px;
+    }
+    
+    .form-field-content {
+        font-size: 14px;
+        height: 36px;
+        padding: 6px 10px;
+    }
+    
+    .button,
+    .button-loading {
+        height: 40px;
+        font-size: 14px;
+    }
+    
+    .register-message {
+        font-size: 12px;
+        margin: 6px 12px;
+    }
+    
+    .login-link {
+        font-size: 13px;
+        margin-top: 12px;
+        flex-direction: column;
+        gap: 8px;
+    }
+}

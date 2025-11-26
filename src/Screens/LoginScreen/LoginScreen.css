@@ -12,6 +12,7 @@ body{
     display: flex;
     align-items: center;
     justify-content: center;
+    padding: 20px;
 }
 
 .login-container{
@@ -20,15 +21,16 @@ body{
     align-items: center;
     border: 3px solid #212121;
     border-radius: 10px;
-    height: 450px;
+    height: auto;
+    min-height: 450px;
     width: 400px;
+    max-width: 400px;
     background-color: #212121;
 }
 
 .form-container{
     width: 100%;
-    padding-left: 15px;
-    padding-right: 15px;
+    padding: 20px;
 }
 
 .form-container h1{
@@ -46,7 +48,7 @@ body{
 }
 
 .form-content .form-field{
-    padding: 15px;
+    padding: 10px 15px;
 }
 
 .form-field-title{
@@ -64,6 +66,7 @@ body{
     border-radius: 50px;
     padding: 10px;
     margin: 0;
+    box-sizing: border-box;
 }
 
 .button-container{
@@ -72,8 +75,7 @@ body{
     align-items: center;
     padding-left: 15px;
     padding-right: 15px;
-    margin-top: 30px;
-    
+    margin-top: 20px;
 }
 
 .button {
@@ -129,7 +131,7 @@ input:-webkit-autofill {
 
 .form-field{
     width: 100%;
-    padding: 20px;
+    padding: 10px 20px;
     box-sizing: border-box;
 }
 
@@ -143,6 +145,8 @@ input:-webkit-autofill {
     align-items: center;
     justify-content: center;
     margin-top: 14px;
+    flex-wrap: wrap;
+    gap: 5px;
 }
 
 .link-text {
@@ -150,4 +154,71 @@ input:-webkit-autofill {
     font-weight: bold;
     cursor: pointer;
     margin-left: 5px;
+}
+
+
+@media screen and (max-width: 440px) {
+    .container {
+        padding: 10px;
+        align-items: flex-start; 
+        padding-top: 40px; 
+    }
+    
+    .login-container{
+        height: auto;
+        min-height: 400px;
+        max-width: 100%;
+    }
+
+    .form-container {
+        padding: 15px;
+    }
+
+    .form-container h1{
+        font-size: 20px;
+        margin: 15px 0;
+    }
+
+    .form-content .form-field{
+        padding: 8px 10px;
+    }
+
+    .form-field{
+        padding: 8px 10px;
+    }
+
+    .button-container{
+        margin-top: 15px;
+        padding: 0 10px;
+    }
+
+    .button,
+    .button-loading {
+        height: 40px;
+        font-size: 15px;
+    }
+
+    .register-link{
+        font-size: 14px;
+        margin-top: 15px;
+        flex-direction: column; 
+        gap: 8px;
+    }
+}
+
+@media screen and (max-width: 320px) {
+    .form-container h1{
+        font-size: 18px;
+    }
+    
+    .form-field-content{
+        font-size: 14px;
+        height: 38px;
+    }
+    
+    .button,
+    .button-loading {
+        height: 38px;
+        font-size: 14px;
+    }
 }
